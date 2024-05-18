@@ -81,10 +81,12 @@ def load(
 
         if model_id_or_path in rylan_trained_models:
             HF_HUB_REPO = "RylanSchaeffer/prismatic-vlms"
+            # remove "prism-" prefix
+            model_id_or_path = model_id_or_path.replace("prism-", "")
         else:
             HF_HUB_REPO = "TRI-ML/prismatic-vlms"
 
-        # overwatch.info(f"Downloading `{(model_id := GLOBAL_REGISTRY[model_id_or_path]['model_id'])} from HF Hub")
+        overwatch.info(f"Downloading `{(model_id := GLOBAL_REGISTRY[model_id_or_path]['model_id'])} from HF Hub")
         model_id = model_id_or_path
         config_json = hf_hub_download(repo_id=HF_HUB_REPO, filename=f"{model_id}/config.json", cache_dir=cache_dir)
         checkpoint_pt = hf_hub_download(
