@@ -57,7 +57,7 @@ def load(
         assert config_json.exists(), f"Missing `config.json` for `{run_dir = }`"
         assert checkpoint_pt.exists(), f"Missing checkpoint for `{run_dir = }`"
     else:
-                rylan_trained_models = {
+        rylan_trained_models = {
             "prism-gemma-instruct+2b+clip",
             "prism-gemma-instruct+2b+siglip",
             "prism-gemma-instruct+2b+dinosiglip",
