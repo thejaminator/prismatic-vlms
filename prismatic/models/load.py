@@ -83,7 +83,8 @@ def load(
 
         if model_id_or_path in rylan_trained_models:
             HF_HUB_REPO = "RylanSchaeffer/prismatic-vlms"
-            model_id = model_id_or_path
+            # remove the word "prism-" from the model_id
+            model_id = model_id_or_path.replace("prism-", "")
         else:
             HF_HUB_REPO = "TRI-ML/prismatic-vlms"
             model_id = GLOBAL_REGISTRY[model_id_or_path]["model_id"]
